@@ -1,22 +1,22 @@
 package Sledge::Plugin::Inflate;
 use strict;
 use warnings;
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 use Carp;
 use Sledge::Registrar;
 
 sub import {
     my $pkg = caller(0);
 
-    $pkg->mk_classdata('__inflate_rule' => {});
+    $pkg->mk_classdata('__inflate_rule' => []);
 
     my $sub = sub {
         my ($self, $key) = @_;
         my $page = Sledge::Registrar->context;
 
-        while (my ($regexp, $sub) = each %{ $page->__inflate_rule }) {
-            if ($key =~ $regexp) {
-                return $sub->($page);
+        for my $rule ( @{ $page->__inflate_rule } ) {
+            if ($key =~ $rule->{regexp}) {
+                return $rule->{cb}->($page);
             }
         }
 
@@ -41,12 +41,12 @@ sub import {
         *{"$pkg\::add_inflate_rule"} = sub {
             my ($class, %rule) = @_;
 
-            $class->__inflate_rule(
-                {
-                    %rule,
-                    %{ $class->__inflate_rule },
-                }
-            );
+            while (my ($regexp, $cb) = each %rule ) {
+                unshift @{ $class->__inflate_rule } => {
+                    regexp => $regexp,
+                    cb     => $cb,
+                };
+            }
         };
     }
 }

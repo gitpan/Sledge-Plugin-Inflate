@@ -1,5 +1,8 @@
 Revision history for Sledge-Plugin-Inflate
 
+0.0.2  Fri Oct 27 00:03:27 JST 2006
+        strict ordered.this version has rule as array.
+
 0.0.1  Thu Oct 26 12:31:06 2006
        Initial release.
 

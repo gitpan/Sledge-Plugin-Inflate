@@ -81,6 +81,26 @@ sub {
 ---
 foo_bar: baz
 
+=== order
+*** query
+*** input
+sub {
+    my $self = shift;
+
+    my $proto = ref $self;
+    $proto->add_inflate_rule(
+        'test' => sub { 'NG' },
+    );
+    $proto->add_inflate_rule(
+        'test' => sub { 'OK' },
+    );
+
+    $self->tmpl->param(test => $self->r->inflate('test'));
+}
+*** expected
+---
+test: OK
+
 === fail if not match the rule.
 *** query
 *** input
