@@ -1,7 +1,7 @@
 package Sledge::Plugin::Inflate;
 use strict;
 use warnings;
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 use Carp;
 use Sledge::Registrar;
 
@@ -25,7 +25,7 @@ sub import {
     };
 
     $pkg->add_trigger(
-        BEFORE_DISPATCH => sub {
+        AFTER_INIT => sub {
             my $page = shift;
 
             for my $meth (qw/r session/) {

@@ -1,5 +1,11 @@
 Revision history for Sledge-Plugin-Inflate
 
+0.0.3  Wed Nov 15 12:37:01 JST 2006
+       change hook point : BEFORE_DISPATCH => AFTER_INIT.
+       use with the S::P::Validator..
+
+       fixed dependencies.
+
 0.0.2  Fri Oct 27 00:03:27 JST 2006
         strict ordered.this version has rule as array.
 

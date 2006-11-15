@@ -1,7 +1,7 @@
 abstract: inflate object from request or session.
 author: Tokuhiro Matsuno  C<< <tokuhiro __at__ mobilefactory.jp> >>
 build_requires: 
-  Test::Base: 0.50
+  Test::Base: 0
 distribution_type: module
 generated_by: Module::Install version 0.64
 license: perl
@@ -10,4 +10,4 @@ no_index:
   directory: 
     - inc
     - t
-version: 0.02
+version: 0.03

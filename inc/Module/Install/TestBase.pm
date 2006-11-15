@@ -7,13 +7,12 @@ use Module::Install::Base;
 
 use vars qw($VERSION @ISA);
 BEGIN {
-    $VERSION = '0.10';
+    $VERSION = '0.11';
     @ISA     = 'Module::Install::Base';
 }
 
 sub use_test_base {
     my $self = shift; 
-    $self->build_requires('Test::Base' => '0.50');
     $self->include('Test::Base');
     $self->include('Test::Base::Filter');
     $self->include('Spiffy');
@@ -24,4 +23,4 @@ sub use_test_base {
 
 1;
 
-#line 68
+#line 67
