@@ -1,6 +1,8 @@
+.shipit
 Changes
 inc/Module/AutoInstall.pm
 inc/Module/Install.pm
+inc/Module/Install/AuthorTests.pm
 inc/Module/Install/AutoInstall.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
@@ -19,16 +21,16 @@ inc/Test/Builder/Module.pm
 inc/Test/More.pm
 lib/Sledge/Plugin/Inflate.pm
 Makefile.PL
-MANIFEST
+MANIFEST			This list of files
 META.yml
 README
 t/00.load.t
 t/01.base.t
 t/Config.pm
 t/Data/CD.pm
-t/dependencies.t
-t/perlcritic.t
-t/pod-coverage.t
-t/pod.t
-t/spelling.t
 t/TestPages.pm
+xt/dependencies.t
+xt/perlcritic.t
+xt/pod-coverage.t
+xt/pod.t
+xt/spelling.t

@@ -5,7 +5,8 @@ use inc::Module::Install;
 name            'Sledge-Plugin-Inflate';
 all_from        'lib/Sledge/Plugin/Inflate.pm';
 
-build_requires 'Test::Base' => 0;
+test_requires 'Test::Base' => 0;
+author_tests 'xt';
 
 use_test_base;
 
